@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Date" representedClassName="Date" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <relationship name="ticket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ticket" inverseName="ticketDate" inverseEntity="Ticket"/>
+    </entity>
+    <entity name="Hour" representedClassName="Hour" syncable="YES">
+        <attribute name="estHour" optional="YES" attributeType="String"/>
+        <attribute name="hour" optional="YES" attributeType="String"/>
+        <relationship name="ticket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ticket" inverseName="ticketHour" inverseEntity="Ticket"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="surname" optional="YES" attributeType="String"/>
+        <relationship name="ticket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ticket" inverseName="customer" inverseEntity="Ticket"/>
+    </entity>
+    <entity name="Ticket" representedClassName="Ticket" syncable="YES">
+        <attribute name="busFirm" optional="YES" attributeType="String"/>
+        <attribute name="busFirmImage" optional="YES" attributeType="String"/>
+        <attribute name="fromLocation" optional="YES" attributeType="String"/>
+        <attribute name="seatNo" optional="YES" attributeType="String"/>
+        <attribute name="ticketID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="ticketPrice" optional="YES" attributeType="String"/>
+        <attribute name="toLocation" optional="YES" attributeType="String"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="ticket" inverseEntity="Person"/>
+        <relationship name="ticketDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Date" inverseName="ticket" inverseEntity="Date"/>
+        <relationship name="ticketHour" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hour" inverseName="ticket" inverseEntity="Hour"/>
+    </entity>
+</model>
